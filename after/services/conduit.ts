@@ -23,7 +23,7 @@ axios.defaults.baseURL = settings.baseApiUrl;
 // blank line between declaration and return statement.
 // When you are done, move components/Header/Footer.tsx to where it belongs: under components/Footer/.
 // Then if necessary update any imports to the new path.
-// When that is completed exit the editor, you are done! :)
+// When that is completed go to the file ArticlePage.tsx and follow the instructions at the top of that file.
 export async function getArticles(filters: ArticlesFilters = {}): Promise<MultipleArticles> {
   const finalFilters: ArticlesFilters = {
     limit: 10,

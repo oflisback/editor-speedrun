@@ -1,3 +1,5 @@
+// This is the last step. This file has some trivial lint warnings.
+// Locate and fix them. Then save the file and exit your editor, you are done. :)
 import { Option } from '@hqoss/monads';
 import { format } from 'date-fns';
 import React, { Fragment, useEffect } from 'react';
@@ -36,7 +38,8 @@ import {
 } from './ArticlePage.slice';
 
 export function ArticlePage() {
-  const { slug } = useParams<{ slug: string }>();
+  // Remove ', bug', bug is unused ..
+  const { slug, bug } = useParams<{ slug: string }>();
 
   const {
     articlePage: { article, commentSection, metaSection },
@@ -200,7 +203,8 @@ function NonOwnerArticleMetaActions({
 
 async function onFollow(username: string, following: boolean) {
   if (store.getState().app.user.isNone()) {
-    redirect('register');
+    // Just  remove '12'
+    12redirect('register');
     return;
   }
 
@@ -250,7 +254,8 @@ function OwnerArticleMetaActions({
 
 async function onDeleteArticle(slug: string) {
   store.dispatch(startDeletingArticle());
-  await deleteArticle(slug);
+  // Remove the second parameter
+  await deleteArticle(slug, true);
   redirect('');
 }
 
@@ -356,7 +361,8 @@ function ArticleComment({
   user,
 }: {
   comment: Comment;
-  slug: string;
+  // This is a typo, it should be 'string'.
+  slug: strang;
   index: number;
   user: Option<User>;
 }) {
